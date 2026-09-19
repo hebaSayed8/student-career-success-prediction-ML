@@ -50,16 +50,16 @@ It covers the full workflow: data exploration, **data leakage detection**, prepr
 
 ### ⚠️ Removed Columns (Data Leakage)
 
-These columns are only known **after** a student is placed, so using them would leak the answer to the model:
+These columns describe the placement result itself, so they are only known **after** a student is placed. Using them would leak the answer to the model:
 
-| Column                | Reason                          |
-| --------------------- | ------------------------------- |
-| `Company_Tier`        | Exists only for placed students |
-| `Career_Field`        | Exists only for placed students |
-| `Placement_Mode`      | Exists only for placed students |
-| `Starting_Salary_USD` | Result of placement             |
-| `Employability_Score` | Derived from the outcome        |
-| `Student_ID`          | Identifier, no predictive value |
+| Column                | Reason                                    |
+| --------------------- | ----------------------------------------- |
+| `Company_Tier`        | Describes the company the student joined  |
+| `Career_Field`        | Describes the job the student got         |
+| `Placement_Mode`      | Describes how the placement happened      |
+| `Starting_Salary_USD` | Result of placement                       |
+| `Employability_Score` | Closely tied to the outcome               |
+| `Student_ID`          | Identifier, no predictive value           |
 
 ---
 
@@ -256,7 +256,7 @@ jupyter notebook student_placement_prediction.ipynb
 ```
 student-career-success-prediction-ML/
 │
-├── student_placement_prediction.ipynb                  # Main notebook
+├── student_placement_prediction.ipynb   # Main notebook
 ├── student_career_success_dataset.csv   # Dataset
 └── README.md                            # This file
 ```
